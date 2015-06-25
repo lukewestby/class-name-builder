@@ -1,0 +1,21 @@
+{
+  "name": "class-name-builder",
+  "version": "0.0.1",
+  "description": "build class name strings based on conditions and values",
+  "main": "dist/class-name-builder.js",
+  "scripts": {},
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babelify": "^6.1.2",
+    "browserify": "^10.2.4",
+    "chai": "^3.0.0",
+    "gulp": "^3.9.0",
+    "karma-browserify": "^4.2.1",
+    "karma-chai": "^0.1.0",
+    "karma-mocha": "^0.1.10",
+    "karma-phantomjs-launcher": "^0.2.0",
+    "phantomjs": "^1.9.17",
+    "vinyl-source-stream": "^1.1.0"
+  }
+}
