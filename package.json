@@ -1,14 +1,21 @@
 {
   "name": "class-name-builder",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "build class name strings based on conditions and values",
   "main": "dist/class-name-builder.js",
   "scripts": {},
   "author": {
-      "name": "Luke William Westby",
-      "email": "lwestby@alumni.nd.edu"
+    "name": "Luke William Westby",
+    "email": "lwestby@alumni.nd.edu"
   },
   "license": "MIT",
+  "repository" : {
+    "type" : "git",
+    "url" : "https://github.com/lukewestby/class-name-builder.git"
+  },
+  "bugs": {
+    "url" : "https://github.com/lukewestby/class-name-builder/issues"
+  },
   "devDependencies": {
     "babelify": "^6.1.2",
     "browserify": "^10.2.4",
