@@ -49,12 +49,12 @@ way to create an instance.
 
 ### Instance methods
 
-* `always(value: string | Array<string>): ClassNameBuilder` : creates a new
+* `always(value: string | Array<string>): ClassNameBuilder`: creates a new
 instance of `ClassNameBuilder` with the given values. If the value is a string,
 multiple class names can be included by separating them with one or more spaces,
 similar to the `class` HTML attribute. Duplicate class names will be removed in
 the case of both a space-separated string and an array.
-* `if(condition: any, value: string | Array<string>): ClassNameBuilder` :
+* `if(condition: any, value: string | Array<string>): ClassNameBuilder`:
 creates a new instance of `ClassNameBuilder` with the passed in `value` only
 included if the condition is truthy.
 * `else(value: string | Array<string>): ClassNameBuilder`: creates a new
