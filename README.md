@@ -1,4 +1,4 @@
-# ClassNameBuilder
+# ClassNameBuilder [![Build Status](https://travis-ci.org/lukewestby/class-name-builder.svg?branch=master)](https://travis-ci.org/lukewestby/class-name-builder)
 
 A small, chainable, immutable utility for building up class name strings in
 application logic. Great for use with React's `className` property or Angular's

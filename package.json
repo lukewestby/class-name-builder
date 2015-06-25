@@ -1,7 +1,7 @@
 {
   "name": "class-name-builder",
-  "version": "0.0.3",
-  "description": "build class name strings based on conditions and values",
+  "version": "0.1.0",
+  "description": "A small, chainable, immutable utility for building up class name strings in application logic",
   "main": "dist/class-name-builder.js",
   "scripts": {},
   "author": {
