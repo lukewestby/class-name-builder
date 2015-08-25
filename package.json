@@ -1,6 +1,6 @@
 {
   "name": "class-name-builder",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A small, chainable, immutable utility for building up class name strings in application logic",
   "main": "dist/class-name-builder.js",
   "scripts": {},
