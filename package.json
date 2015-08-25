@@ -9,23 +9,23 @@
     "email": "lwestby@alumni.nd.edu"
   },
   "license": "MIT",
-  "repository" : {
-    "type" : "git",
-    "url" : "https://github.com/lukewestby/class-name-builder.git"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/lukewestby/class-name-builder.git"
   },
   "bugs": {
-    "url" : "https://github.com/lukewestby/class-name-builder/issues"
+    "url": "https://github.com/lukewestby/class-name-builder/issues"
   },
   "devDependencies": {
-    "babelify": "^6.1.2",
-    "browserify": "^10.2.4",
-    "chai": "^3.0.0",
-    "gulp": "^3.9.0",
-    "karma-browserify": "^4.2.1",
-    "karma-chai": "^0.1.0",
-    "karma-mocha": "^0.1.10",
-    "karma-phantomjs-launcher": "^0.2.0",
-    "phantomjs": "^1.9.17",
-    "vinyl-source-stream": "^1.1.0"
+    "babelify": "6.2.0",
+    "browserify": "11.0.1",
+    "chai": "3.2.0",
+    "gulp": "3.9.0",
+    "karma-browserify": "4.3.0",
+    "karma-chai": "0.1.0",
+    "karma-mocha": "0.2.0",
+    "karma-phantomjs-launcher": "0.2.1",
+    "phantomjs": "1.9.18",
+    "vinyl-source-stream": "1.1.0"
   }
 }

@@ -7,7 +7,7 @@ Object.defineProperty(exports, '__esModule', {
 
 var _classNameBuilderProto;
 
-function _defineProperty(obj, key, value) { return Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); }
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
 
 var classNameBuilderProto = (_classNameBuilderProto = {
 
