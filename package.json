@@ -1,6 +1,6 @@
 {
   "name": "class-name-builder",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "A small, chainable, immutable utility for building up class name strings in application logic",
   "main": "dist/class-name-builder.js",
   "scripts": {
@@ -23,6 +23,6 @@
     "babel": "5.8.23",
     "babelify": "6.2.0",
     "browserify": "11.0.1",
-    "tape": "^4.2.0"
+    "tape": "4.2.0"
   }
 }
