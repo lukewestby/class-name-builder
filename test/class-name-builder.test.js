@@ -1,112 +1,131 @@
+import test from 'tape';
 import ClassNameBuilder from '../src/class-name-builder.js';
 
-describe('ClassNameBuilder', () => {
+test('create()', (t) => {
+  t.plan(1);
 
-    describe('create()', () => {
+  const className = ClassNameBuilder
+    .create()
+    .toString();
 
-        it('should return an empty string from a fresh instance', () => {
-            ClassNameBuilder
-                .create()
-                .toString()
-                .should.equal('');
-        });
-    });
+  t.equal(className, '', 'it should return an empty string from a fresh instance');
+});
 
-    describe('always()', () => {
+test('always()', (t) => {
 
-        it('should return the given class names when called with always', () => {
-            ClassNameBuilder
-                .create()
-                .always('blue')
-                .toString()
-                .should.equal('blue');
-        });
+  t.test('basic usage', (t) => {
+    t.plan(1);
 
-        it('should accept an array of class names', () => {
-            ClassNameBuilder
-                .create()
-                .always(['blue', 'green'])
-                .toString()
-                .should.equal('blue green');
-        });
+    const className = ClassNameBuilder
+      .create()
+      .always('blue')
+      .toString();
 
-        it('should split strings on spaces', () => {
-            ClassNameBuilder
-                .create()
-                .always('blue      green')
-                .toString()
-                .should.equal('blue green')
-        });
+    t.equal(className, 'blue', 'it should return the given class names when called with always');
+  });
 
-        it('should remove duplicates', () => {
-            ClassNameBuilder
-                .create()
-                .always('blue green blue')
-                .toString()
-                .should.equal('blue green');
-        });
-    });
+  t.test('array input', (t) => {
+    t.plan(1);
 
-    describe('if()', () => {
+    const className = ClassNameBuilder
+        .create()
+        .always(['blue', 'green'])
+        .toString();
 
-        it('should return a class name under an if statement only if the condition is true', () => {
+    t.equal(className, 'blue green', 'it should accept an array of class names');
+  });
 
-            ClassNameBuilder
-                .create()
-                .if(true, 'true')
-                .if(false, 'false')
-                .toString()
-                .should.equal('true');
-        });
-    });
+  t.test('string splitting', (t) => {
+    t.plan(1);
 
-    describe('else()', () => {
+    const className = ClassNameBuilder
+        .create()
+        .always('blue      green')
+        .toString();
 
-        it('should return a class name under the else branch of an if statement if the condition is false', () => {
-            ClassNameBuilder
-                .create()
-                .if(false, 'false').else('true')
-                .toString()
-                .should.equal('true');
-        });
+    t.equal(className, 'blue green', 'it should split strings on spaces');
+  });
 
-        it('should not return a class name under an else branch if the condition is true', () => {
-            ClassNameBuilder
-                .create()
-                .if(true, 'true').else('false')
-                .toString()
-                .should.equal('true');
-        });
+  t.test('deduping', (t) => {
+    t.plan(1);
 
-        it('should throw an error if else is called before if', () => {
-            (() => {
-                ClassNameBuilder
-                    .create()
-                    .else('not gonna work');
-            }).should.throw;
-        });
-    });
+    const className = ClassNameBuilder
+        .create()
+        .always('blue green blue')
+        .toString();
 
-    describe('merge()', () => {
+    t.equal(className, 'blue green', 'it should remove duplicates');
+  });
+});
 
-        it('should include class names from one builder into another', () => {
+test('if()', (t) => {
+  t.plan(1);
 
-            const firstBuilder = ClassNameBuilder.create().always('first');
-            const secondBuilder = ClassNameBuilder.create().always('second');
-            const mergedBuilder = firstBuilder.merge(secondBuilder);
+  const className = ClassNameBuilder
+      .create()
+      .if(true, 'true')
+      .if(false, 'false')
+      .toString();
 
-            mergedBuilder
-                .toString()
-                .should.equal('first second');
-        });
+  t.equal(className, 'true', 'it should return a class name under an if statement only if the condition is true');
+});
 
-        it('should throw if something other than a ClassNameBuilder is passed', () => {
+test('else()', (t) => {
 
-            const builder = ClassNameBuilder.create();
+  t.test('false if() value', (t) => {
+    t.plan(1);
 
-            (() => {
-                builder.merge(1);
-            }).should.throw;
-        });
-    });
+    const className = ClassNameBuilder
+      .create()
+      .if(false, 'false').else('true')
+      .toString();
+
+    t.equal(className, 'true', 'it should return a class name under the else branch of an if statement if the condition is false');
+  });
+
+  t.test('true if() value', (t) => {
+    t.plan(1);
+
+    const className = ClassNameBuilder
+        .create()
+        .if(true, 'true').else('false')
+        .toString();
+
+    t.equal(className, 'true', 'it should not return a class name under an else branch if the condition is true');
+  });
+
+  t.test('incorrect usage', (t) => {
+    t.plan(1);
+
+    const badUsage = () => {
+      ClassNameBuilder
+          .create()
+          .else('not gonna work');
+    };
+
+    t.throws(badUsage, 'it should throw an error if else is called before if');
+  });
+});
+
+test('merge()', (t) => {
+
+  t.test('basic usage', (t) => {
+    t.plan(1);
+
+    const firstBuilder = ClassNameBuilder.create().always('first');
+    const secondBuilder = ClassNameBuilder.create().always('second');
+    const mergedBuilder = firstBuilder.merge(secondBuilder);
+    const className = mergedBuilder.toString();
+
+    t.equal(className, 'first second', 'it should include class names from one builder into another');
+  });
+
+  t.test('incorrect usage', (t) => {
+    t.plan(1);
+
+    const builder = ClassNameBuilder.create();
+    const badUsage = () => builder.merge(1);
+
+    t.throws(badUsage, 'it should throw if something other than a ClassNameBuilder is passed')
+  })
 });

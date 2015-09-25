@@ -3,7 +3,10 @@
   "version": "0.1.1",
   "description": "A small, chainable, immutable utility for building up class name strings in application logic",
   "main": "dist/class-name-builder.js",
-  "scripts": {},
+  "scripts": {
+    "build": "./node_modules/browserify/bin/cmd.js -e ./src/class-name-builder.js -s class-name-builder -t babelify -o ./dist/class-name-builder.js",
+    "test": "./node_modules/babel/bin/babel-node.js ./node_modules/tape/bin/tape ./test/**/*"
+  },
   "author": {
     "name": "Luke William Westby",
     "email": "lwestby@alumni.nd.edu"
@@ -17,15 +20,9 @@
     "url": "https://github.com/lukewestby/class-name-builder/issues"
   },
   "devDependencies": {
+    "babel": "5.8.23",
     "babelify": "6.2.0",
     "browserify": "11.0.1",
-    "chai": "3.2.0",
-    "gulp": "3.9.0",
-    "karma-browserify": "4.3.0",
-    "karma-chai": "0.1.0",
-    "karma-mocha": "0.2.0",
-    "karma-phantomjs-launcher": "0.2.1",
-    "phantomjs": "1.9.18",
-    "vinyl-source-stream": "1.1.0"
+    "tape": "^4.2.0"
   }
 }
