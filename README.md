@@ -12,13 +12,6 @@ application code.
 npm install class-name-builder
 ```
 
-```
-jspm install npm:class-name-builder
-```
-
-If you would like support for another ecosystem, please open an issue or submit
-a PR.
-
 ## Example
 
 ```javascript
